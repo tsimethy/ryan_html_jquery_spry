@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+   <head>
+      <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+      <title>Harringway Travels</title>
+      <link rel="stylesheet" type="text/css" href="styles.css"/>
+      <script>
+         function loadXMLDoc() {
+           var xhttp = new XMLHttpRequest();
+           xhttp.onreadystatechange = function() {
+             if (this.readyState == 4 && this.status == 200) {
+               document.getElementById("demo").innerHTML =
+               this.responseText;
+             }
+           };
+           xhttp.open("GET", "xmlhttp_info.txt", true);
+           xhttp.send();
+         }
+      </script>
+      <script>		
+         //start method when page is loaded
+         function start()
+         {
+         		document.getElementById("last_modified").innerHTML = "This document is last modified on "+document.lastModified;  // display the last modified date in footer
+         
+         }
+         
+         window.addEventListener("load", start, false);   //add method start for loadEvent
+      </script>
+   </head>
+   <body>
+      <div class="container">
+         <div class="row">
+            <div class="col-md-12 ">
+               <div id="banner">
+                  <h1>Harringway Travels<img alt="Harringway Travels Logo" src="logo.png" width="50" height="50" class="img-responsive img-fluid right"/> </h1>
+               </div>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-md-12">
+               <nav>
+                  <div id="dropdown-menu"> Menu</div>
+                  <ul id="navlist">
+                     <li><a href="home.html">Home</a></li>
+                     <li><a href="flights.html">Book Flights</a></li>
+                     <li><a href="accomodations.html">Accommodations</a></li>
+                     <li><a href="contact.html">Contact Us</a></li>
+                     <li><a href="links.html">Useful Links</a></li>
+                     <li><a href="feedback.html">Feedback</a></li>
+                     <li><a href="siteMap.html">Site Map</a></li>
+                  </ul>
+               </nav>
+            </div>
+            <div class="row">
+               <div class="col-md-12">
+                  <h2>Site Map</h2>
+                  <div id="demo">
+                     <button type="button" onclick="loadXMLDoc()" class="primary_button">Do you want to change the site?</button>
+                  </div>
+                  <ul class="navbar-nav mr-auto">
+                     <li class="nav-item"><a  href="home.html">Home</a></li>
+                     <li class="nav-item"><a  href="flights.html" >Book Flights</a></li>
+                     <li class="nav-item"><a href="accomodations.html">Accommodations</a></li>
+                     <li class="nav-item"><a  href="contact.html" >Contact Us</a></li>
+                     <li class="nav-item"><a href="links.html" >Useful Links</a></li>
+                     <li class="nav-item"><a href="feedback.html">Feedback</a></li>
+                     <li class="nav-item"><a  href="siteMap.html" >Site Map</a></li>
+                  </ul>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-md-12 offset-0">
+                  <div id="footer">
+                     <a href="styles.css" target="_blank">Site Stylesheet</a>
+                     <p>© Copyright “this website is developed as an educational project”. If any copyrighted materials are included in accordance to the multimedia fair use guidelines, a notice should be added and states that “certain materials are included under the fair use exemption of the U.S. Copyright Law and have been prepared according to the multimedia fair use guidelines and are restricted from further use”.
+                     </p>
+                     <p id="last_modified"> </p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

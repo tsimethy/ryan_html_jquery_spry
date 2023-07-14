@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:spry="http://ns.adobe.com/spry">    
+
+<head>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+        <title>Harringway Travels</title>
+        <link rel="stylesheet" type="text/css" href="styles.css" />
+
+        <script src="SpryAssets/SpryData.js" type="text/javascript"></script>
+        <script src="SpryAssets/xpath.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            var dsEvents = new Spry.Data.XMLDataSet("accomodations.xml", "events/event");   // Load the XML data
+        </script>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="banner">
+                        <h1>Harringway Travels<img alt="Harringway Travels Logo" src="logo.png" width="50" height="50" class="img-responsive img-fluid right" /></h1>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <nav>
+                        <div id="dropdown-menu">Menu</div>
+                        <ul id="navlist">
+                            <li><a href="home.html">Home</a></li>
+                            <li><a href="flights.html">Book Flights</a></li>
+                            <li><a href="accomodations.html">Accommodations</a></li>
+                            <li><a href="contact.html">Contact Us</a></li>
+                            <li><a href="links.html">Useful Links</a></li>
+                            <li><a href="feedback.html">Feedback</a></li>
+      						<li><a href="siteMap.html">Site Map</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <h2>Accomodations</h2>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div id="content1">
+							<! --- Define the spry region ---> 
+                            <div spry:region="dsEvents">
+                                <table id="events">
+                                    <tr>
+                                        <th scope="col">Accomodation Types/ Amenities</th>
+                                        <th scope="col">Location</th>
+                                    </tr>
+									<! --- Indicate the spry repeat rows ---> 
+                                    <tr spry:repeat="dsEvents" spry:setrow="dsEvents" spry:hover="rowHover">
+                                        <td>{name}</td>
+                                        <td>{location}</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div id="sidebar">
+                            <div id="sidebar_brace">
+                                <div>
+                                    <div id="imgwrapper">
+                                        <div id="#imgeffect">
+                                            <div>
+												<! --- Define the spry detail region ---> 
+                                                <div spry:detailregion="dsEvents">
+                                                    <img src="{eventimage}" alt="Event Image" name="Event_Image" width="356" height="156" id="Event_Image" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+								<! --- Define the spry detail region ---> 
+                                <div spry:detailregion="dsEvents">{desc}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 offset-0">
+                        <div id="footer">
+                            <a href="styles.css" target="_blank">Site Stylesheet</a>
+                            <p>
+                                © Copyright “this website is developed as an educational project”. If any copyrighted materials are included in accordance to the multimedia fair use guidelines, a notice should be added and states that
+                                “certain materials are included under the fair use exemption of the U.S. Copyright Law and have been prepared according to the multimedia fair use guidelines and are restricted from further use”.
+                            </p>
+                            <p id="last_modified"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

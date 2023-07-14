@@ -1,0 +1,204 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Harringway Travels</title>
+<link rel="stylesheet" type="text/css" href="styles.css"/>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script> 
+$(document).ready(function(){
+  $("#flip").click(function(){
+    $("#panel").slideToggle("slow");
+  });
+});
+</script>
+ 
+<script>
+	const myInterval = setInterval(displayImage, 1000); // set intervals to call the displayImage method
+	
+	//method called when theme button is pressed
+	function themeButtonPressed()
+	{
+		var themeButtonValue = document.getElementById("theme").value; // get theme element's value
+		if (themeButtonValue == "Switch theme to dark") {
+				document.getElementById("theme").value = "Switch theme to light";
+				document.body.style.backgroundColor = "grey";
+		}
+		else {
+				document.getElementById("theme").value = "Switch theme to dark";
+				document.body.style.backgroundColor = "white";
+		}
+	}
+	
+	//method called when vacation packages button is pressed
+	function vacationPackagesButtonPressed()
+	{
+		var myWindow = window.open("https://www.hotels.com/", "", "width=700,height=1000");	// Displays the hotels.com web site in new window
+	}
+	
+	//method for enlarging the image size
+	function displayImage()
+	{
+	 	document.getElementById("enlarge_image").height = document.getElementById("enlarge_image").height * 1.1;
+	 	document.getElementById("enlarge_image").width = document.getElementById("enlarge_image").width * 1.1;
+	 	if(document.getElementById("enlarge_image").height > 500) {
+	 		clearInterval(myInterval);
+	 	}
+
+	}
+	
+	// method to change the color of the welcome message after every second
+	function welcomeMessageDisplay()
+	{
+		var colors = ["royalblue", "black"]; // array for colors
+		
+		// switch the color 
+		if (document.getElementById("welcome").style.color == colors[0])
+			document.getElementById("welcome").style.color = colors[1];
+		else
+			document.getElementById("welcome").style.color = colors[0];
+		
+		setTimeout("welcomeMessageDisplay()",1000) // call method every second
+	}
+	//start method when page is loaded
+	function start()
+	{
+		var vacationPackagesButton = document.getElementById("vacation_packages"); // get vacation_packages element
+		vacationPackagesButton.addEventListener("click", vacationPackagesButtonPressed, false);  //add method vacationPackagesButtonPressed for clickEvent
+		var themeButton = document.getElementById("theme"); // get theme element
+		themeButton.addEventListener("click", themeButtonPressed, false);  //add method themeButtonPressed for clickEvent
+
+		document.getElementById("last_modified").innerHTML = "This document is last modified on "+document.lastModified;  // set the last_modified 
+		
+		// if name is stored in local storage include name in welcome message
+		var name = localStorage.getItem("Name"); 
+		if (name == null) {
+			name = "";
+		}
+		document.getElementById("welcome").innerHTML = "Welcome " + name + " to Harringway Travels"; // Include name in the welcome message display
+		welcomeMessageDisplay(); // call welcomeMessageDisplay
+	}
+	
+	window.addEventListener("load", start, false);   //add method start for loadEvent
+</script>
+
+</head>
+
+<body>
+<div class="container">
+<div class="row">
+<div class="col-md-12 "> 
+   <div id="banner">
+   	   <h1>Harringway Travels<img alt="Harringway Travels Logo" src="logo.png" width="50" height="50" class="img-responsive img-fluid right"/> </h1>
+   </div>
+</div>
+</div>
+
+<div class="row">
+
+<div class="col-md-12"> 
+   <nav><div id="dropdown-menu"> Menu</div>
+	 <ul id="navlist">
+	  <li><a href="home.html">Home</a></li>
+	  <li><a href="flights.html">Book Flights</a></li>
+	  <li><a href="accomodations.html">Accommodations</a></li>
+	  <li><a href="contact.html">Contact Us</a></li>
+      <li><a href="links.html">Useful Links</a></li>
+      <li><a href="feedback.html">Feedback</a></li>
+      <li><a href="siteMap.html">Site Map</a></li>
+     </ul>
+   </nav>
+ </div>
+ 
+ <div class="row">
+ <div class="col-md-12 box-div">
+ <h2 id="welcome">Welcome to our World of Travel..........................</h2>
+ </div>
+ </div>
+ <div id="flip">Click for special offer</div>
+<div id="panel">Good news! 20% off on your next booking</div>
+<br>
+  <div>
+  
+      <div>
+      	<img src="i/pexels-keegan-checks-9860910.jpg" alt="Beach" height="20" width="15" class="img-responsive img-fluid pic" id ="enlarge_image" >
+      	<p class="text-center">Photo by Keegan Checks: https://www.pexels.com/photo/directly-above-shot-of-two-beach-houses-9860910/</p>
+      	<form>
+        	<input name="theme" id="theme" type="button" value="Switch theme to dark" class="primary_button" />
+        </form>
+
+        <h2 class="text-center">Vacation Packages coming soon on Harringway Travels. Would you like to book one package?</h2>
+        
+        <form>
+        	<input name="vacation_packages" id="vacation_packages" type="button" value="Choose a Vacation Package" class="primary_button" />
+        </form>
+        <h2 class="text-center">Our Top Packages&nbsp;</h2>
+       <div class="row">
+		<div class="col-sm-1"></div>
+		<div class="col-sm-5"><p><b>Luxury 5bd/4ba with pool in Boston</b></p><p> A luxury private residence with 4  queen size beds and 1 king size bed. The pool comes with an unobstucted mountain view. Can accomodate 8 guests<p>Ratings: 4.5/5</p><p>Cost: $125 per night</p> </div>
+		<div class="col-sm-5"><img src="https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" alt="Apartment" height="200" width="300" class="img-responsive img-fluid pic"></div>
+		<div class="col-sm-1"></div>
+        </div>
+		</div>
+		<div class="row">
+		<div class="col-sm-1"></div>
+		<div class="col-sm-5"></div>
+		<div class="col-sm-5"><p><a href="https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=50" target="_blank">Picture source</a> by (Pixabay, 2022)</p></div>
+		<div class="col-sm-1"></div>
+		</div>
+	   <div class="row">
+		<div class="col-sm-1"></div>
+		<div class="col-sm-5"><p><b>Private room with bed and breakfast</b></p><p>2 Guest 1 Bedroom 1 Bathroom in Virginia Beach<p>Ratings: 3.5/5</p><p>Cost: $105 per night</p> </div>
+		<div class="col-sm-5"><img src="https://images.pexels.com/photos/1375383/pexels-photo-1375383.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940 " alt="Apartment" height="200" width="300" class="img-responsive img-fluid pic"></div>
+		<div class="col-sm-1"></div>
+        </div>
+		</div>
+		<div class="row">
+		<div class="col-sm-1"></div>
+		<div class="col-sm-5"></div>
+		<div class="col-sm-5"><p><a href="https://images.pexels.com/photos/1375383/pexels-photo-1375383.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" target="_blank">Picture source</a> by (Smida, 2021)</p></div>
+		<div class="col-sm-1"></div>
+		</div>
+		<div class="row">
+		<div class="col-sm-1"></div>
+		<div class="col-sm-5"><p><b>Room in boutique hotel</b></p>Ashburn, Va. Room for 2 guests with king size bed and attached bath.<p>Ratings: 4.8/5</p><p>Cost: $135 per night</p> </div>
+		<div class="col-sm-5"><img src="https://images.pexels.com/photos/2869215/pexels-photo-2869215.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Lobby" height="200" width="300" class="img-responsive img-fluid pic"></div>
+		<div class="col-sm-1"></div>
+        </div>
+		<div class="row">
+		<div class="col-sm-1"></div>
+		<div class="col-sm-5"></div>
+		<div class="col-sm-5"><p><a href="https://images.pexels.com/photos/2869215/pexels-photo-2869215.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" target="_blank">Picture source</a> by (L 2021)</p></div>
+		<div class="col-sm-1"></div>
+		</div>
+		<div class="row"> <div class="col-sm-12"></div> </div>
+		
+		<div>
+		<b>References:</b>
+		<p>
+		L, K. (2021). Lobby [Image]. Retrieved from https://images.pexels.com/photos/2869215/pexels-photo-2869215.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940</p><p>
+		Pixabay. (2021). Apartment [Image]. Retrieved from https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=50</p><p>
+		Smida, S. (2021). [Image]. Retrieved from https://images.pexels.com/photos/1375383/pexels-photo-1375383.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
+		</p>
+		</div>
+      </div>
+  </div>
+
+
+<div class="row">
+<div class="col-md-12 offset-0"> 
+   <div id="footer">
+   <a href="styles.css" target="_blank">Site Stylesheet</a>
+   	  <p>© Copyright “this website is developed as an educational project”. If any copyrighted materials are included in accordance to the multimedia fair use guidelines, a notice should be added and states that “certain materials are included under the fair use exemption of the U.S. Copyright Law and have been prepared according to the multimedia fair use guidelines and are restricted from further use”.
+	</p>
+	<p id="last_modified"> </p>
+
+   </div>
+</div>
+</div>  
+
+</body>
+
+</html>

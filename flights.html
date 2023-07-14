@@ -1,0 +1,174 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+   <head>
+      <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+      <title>Harringway Travels</title>
+      <link rel="stylesheet" type="text/css" href="styles.css"/>
+      <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+      <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+      <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+      <script src="jqueryAssets/jquery.validate.js"></script>
+      <script>
+         $.validator.setDefaults({
+         	submitHandler: function() {
+         		alert("Your request has been submitted! An agent will contact.");
+         	}
+         });
+         
+         $().ready(function() {
+         
+         	// validate signup form on keyup and submit
+         	$("#flightsForm").validate({
+         		rules: {
+         			no_pass: "required",
+         			policy: "required",
+         			pri_pass: {
+         				required: true,
+         				minlength: 2
+         			},
+         			trip: "required",
+					tags_departure: "required"
+         		},
+         		messages: {
+         			no_pass: "Please enter number of passengers",
+         			policy: "Please confirm agreement to our policy",
+         			pri_pass: {
+         				required: "Please enter a primary passenger name",
+         				minlength: "Your username must consist of at least 2 characters"
+         			},
+         			trip: "Please select type of trip",
+					tags_departure: "Please select departure airport"
+         		}
+         	});
+         
+         
+         });
+      </script>
+      <script>
+         $( function() {
+           var availableTags = [
+                "Washington Dulles (IAD)",
+                "Newark Liberty (EWR)",
+                "Boston Logan  (BOS)",
+                "Philadelphia (PHL)",
+                "Rhode Island TF Green (PVD)"
+           ];
+           $( "#tags_arrival" ).autocomplete({
+             source: availableTags
+           });
+           $( "#tags_departure" ).autocomplete({
+             source: availableTags
+           });
+         
+         } );
+      </script>
+      <script>
+         //start method when page is loaded
+         function start()
+         {
+         	//var submitButton = document.getElementById("submit");  // get submit button element by id
+         	//submitButton.addEventListener("click", submitButtonPressed, false);  //add method submitButtonPressed for clickEvent
+         	document.getElementById("last_modified").innerHTML = "This document is last modified on "+document.lastModified; // display last modified
+         
+         }
+         
+         window.addEventListener("load", start, false);   //add method start for loadEvent
+      </script>
+   </head>
+   <body>
+      <div class="container">
+         <div class="row">
+            <div class="col-md-12 ">
+               <div id="banner">
+                  <h1>Harringway Travels<img alt="Harringway Travels Logo" src="logo.png" width="50" height="50" class="img-responsive img-fluid right"/> </h1>
+               </div>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-md-12">
+               <nav>
+                  <div id="dropdown-menu"> Menu</div>
+                  <ul id="navlist">
+                     <li><a href="home.html">Home</a></li>
+                     <li><a href="flights.html">Book Flights</a></li>
+                     <li><a href="accomodations.html">Accommodations</a></li>
+                     <li><a href="contact.html">Contact Us</a></li>
+                     <li><a href="links.html">Useful Links</a></li>
+                     <li><a href="feedback.html">Feedback</a></li>
+                     <li><a href="siteMap.html">Site Map</a></li>
+                  </ul>
+               </nav>
+            </div>
+            <div class="row">
+               <div class="col-md-12">
+                  <h2>Book Flights</h2>
+                  <form class="cmxform" id="flightsForm" method="get" action="">
+                     <fieldset>
+                        <legend>Travel Options</legend>
+                        <label for="policy">Please agree to our policy<input id="policy" name="policy" type="checkbox" /></label> 
+                        <br>   
+                        <br>  
+                        <label for="one_way">One Way<input id="one_way" name="trip" type="radio" value="one_way" /> </label> <br>
+                        <label for="round_trip">Round Trip<input id="round_trip" name="trip" type="radio" value="round_trip" /> </label><br><br>
+                        <label id="Label1">
+                           Number Of Passengers 
+                           <select name="no_pass" id="no_pass">
+                              <option></option>
+                              <option>1</option>
+                              <option>2</option>
+                              <option>3</option>
+                              <option>4</option>
+                              <option>5</option>
+                           </select>
+                        </label>
+                        <br>
+                        <br>
+                        <label id="Label10">Comments</label> 
+                        <textarea name="TextArea1" cols="36" rows="4"></textarea>
+                        <br><br>
+                        <label id="Label11">Primary Passenger Name</label> <input name="pri_pass" type="text" id="pri_pass"/>
+                        <br>
+                     </fieldset>
+                     <br>
+                     <fieldset>
+                        <legend>Airport</legend>
+                        <div class="ui-widget">
+                           <label for="tags">Departure: </label>
+                           <input id="tags_departure" name="tags_departure">
+                        </div>
+                        <br>
+                        <div class="ui-widget">
+                           <label for="tags">Arrival: </label>
+                           <input id="tags_arrival">
+                        </div>
+                     </fieldset>
+                     <br>
+                     <fieldset>
+                        <legend>Date of Travel</legend>
+                        <label id="Label4">From Date: 
+                        <input type="date" id="from_date"  /></label><br><br>
+                        <label id="Label5">To Date: 
+                        <input type="date" id="to_date"  /></label>
+                     </fieldset>
+                     <br>
+                     <input name="Submit1" id="submit" type="submit" value="Submit" class="primary_button" />
+                     <input name="Reset1" id="reset" type="reset" value="Reset" class="secondary_button" />
+                     <br>
+                     <br>
+                  </form>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-md-12 offset-0">
+                  <div id="footer">
+                     <a href="styles.css" target="_blank">Site Stylesheet</a>
+                     <p>© Copyright “this website is developed as an educational project”. If any copyrighted materials are included in accordance to the multimedia fair use guidelines, a notice should be added and states that “certain materials are included under the fair use exemption of the U.S. Copyright Law and have been prepared according to the multimedia fair use guidelines and are restricted from further use”.
+                     </p>
+                     <p id="last_modified"> </p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

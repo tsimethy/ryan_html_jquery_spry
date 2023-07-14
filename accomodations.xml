@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<events>
+	
+	<event>
+		<name>City center hotels</name>
+		<location>Amman, Jordan</location>
+		<date>May 26th</date>
+		<eventimage>i/pexels-prateek-katyal-3678857.jpg</eventimage>
+		<bkgimage/>
+		<descheader><![CDATA[Description Header]]></descheader>
+		<desc><![CDATA[Accommodation in the city center, access to theaters, casinos, shopping...  Photo by Prateek Katyal: https://www.pexels.com/photo/colorful-hotel-building-led-signage-in-night-time-3678857/]]></desc>
+	</event>
+	
+	<event>
+		<name>Luxury Hotel</name>
+		<location>Kowloon, Hong Kong</location>
+		<date>June 10th</date>
+		<eventimage>i/pexels-jimmy-chan-1458457.jpg</eventimage>
+		<bkgimage/>
+		<descheader><![CDATA[Description Header]]></descheader>
+		<desc><![CDATA[Beautiful views, full amenities of a luxury hotel.  Photo by Jimmy Chan: https://www.pexels.com/photo/three-blue-dolphins-statue-front-of-water-near-building-1458457/]]></desc>
+	</event>
+	
+	<event>
+		<name>Vegas strip</name>
+		<location>Las Vegas, NV</location>
+		<date>June 22nd</date>
+		<eventimage>i/pexels-dave-morgan-2540664.jpg</eventimage>
+		<bkgimage/>
+		<descheader><![CDATA[Description Header]]></descheader>
+		<desc><![CDATA[Casinos, shows and more at the Vegas Strip.   Photo by Dave Morgan: https://www.pexels.com/photo/over-exposured-photo-of-a-ferris-wheel-at-night-2540664/]]></desc>
+	</event>
+	
+	<event>
+		<name>Resort</name>
+		<location>Miami, FL</location>
+		<date>December 17th</date>
+		<eventimage>i/pexels-pixabay-258154.jpg</eventimage>
+		<bkgimage/>
+		<descheader><![CDATA[Description Header]]></descheader>
+		<desc><![CDATA[Beaches, Palm trees and more at Miami Florida. Photo by Pixabay: https://www.pexels.com/photo/palm-trees-at-night-258154/]]></desc>
+	</event>
+	
+	<event>
+		<name>Luxury Villa</name>
+		<location>Washington, DC</location>
+		<date>May 26th</date>
+		<eventimage>i/pexels-mikhail-nilov-7820311.jpg</eventimage>
+		<bkgimage/>
+		<descheader><![CDATA[Description Header]]></descheader>
+		<desc><![CDATA[Washington D.C. the tourist hotspot. Photo by Mikhail Nilov: https://www.pexels.com/photo/a-female-tourist-talking-to-the-female-receptionist-of-the-hotel-7820311/]]></desc>
+	</event>
+	
+	<event>
+		<name>Resort Pool</name>
+		<location>Maldives</location>
+		<date>June 10th</date>
+		<eventimage>i/pexels-gapeppy-2373201.jpg</eventimage>
+		<bkgimage/>
+		<descheader><![CDATA[Description Header]]></descheader>
+		<desc><![CDATA[Lay back and relax in comfort right next to the beach. Photo by GaPeppy1: https://www.pexels.com/photo/white-outdoor-lounge-chairs-2373201/]]></desc>
+	</event>
+	
+	<event>
+		<name>Resort Gym</name>
+		<location>Bahamas</location>
+		<date>June 22nd</date>
+		<eventimage>i/pexels-william-choquette-1954524.jpg</eventimage>
+		<bkgimage/>
+		<descheader><![CDATA[Description Header]]></descheader>
+		<desc><![CDATA[Gym and other amenites at resort in Bahamas.  Photo by William Choquette: https://www.pexels.com/photo/an-on-treadmill-1954524/]]></desc>
+	</event>
+	
+</events>

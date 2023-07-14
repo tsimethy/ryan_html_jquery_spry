@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Harringway Travels</title>
+<link rel="stylesheet" type="text/css" href="styles.css"/> 
+<script>
+	
+	//method called when personal info button is pressed
+	function personalInfoButtonPressed()
+	{
+		// check if name is stored in local storage
+		var name = localStorage.getItem("Name"); 
+		
+		// if name is not yet stored in local storage prompt user for name
+		if (name == null) {
+	
+			let person = prompt("Please enter your name", ""); // prompt user for name
+
+			if (person != null) {
+				localStorage.setItem("Name", person); // store name in local storage
+			}
+		}
+		else
+		{
+			// if name is stored in local storage ask user if it is to be cleared
+			var response = confirm("You have already entered your name, would you like to reset it? "); 
+			if (response == true)
+			{
+				localStorage.clear();  // clear local storage
+			}
+		}
+	}
+	
+	// function to highlight contact info in red
+	function showContact() 
+	{
+			var contact = document.getElementById( "contact_number" );
+			contact.style.color="red";
+	}
+	
+	// function to revert contact info back to default color
+	function clearContact() 
+	{
+			var contact = document.getElementById( "contact_number" );
+			contact.style.color="black";
+
+	}
+
+	
+	//start method when page is loaded
+	function start()
+	{
+		var personalInfoButton = document.getElementById("personal_info"); // get personal_info element
+		personalInfoButton.addEventListener("click", personalInfoButtonPressed, false);  //add method personalInfoButtonPressed for clickEvent
+		document.getElementById("last_modified").innerHTML = "This document is last modified on "+document.lastModified; // display last modified
+		 var contact = document.getElementById( "contact_number" );  // get the contact_number element
+		 contact.addEventListener("mouseover", showContact, false); // add showContact method for mouseover event
+		 contact.addEventListener("mouseout", clearContact, false); // add clearContact method for mouseover event
+
+	}
+	
+	window.addEventListener("load", start, false);   //add method start for loadEvent
+</script>
+
+</head>
+
+<body>
+<div class="container">
+<div class="row">
+<div class="col-md-12 "> 
+   <div id="banner">
+   	   <h1>Harringway Travels<img alt="Harringway Travels Logo" src="logo.png" width="50" height="50" class="img-responsive img-fluid right"/> </h1>
+   </div>
+</div>
+</div>
+
+<div class="row">
+
+<div class="col-md-12"> 
+   <nav><div id="dropdown-menu"> Menu</div>
+	 <ul id="navlist">
+	  <li><a href="home.html">Home</a></li>
+	  <li><a href="flights.html">Book Flights</a></li>
+	  <li><a href="accomodations.html">Accommodations</a></li>
+	  <li><a href="contact.html">Contact Us</a></li>
+      <li><a href="links.html">Useful Links</a></li>
+      <li><a href="feedback.html">Feedback</a></li>
+      <li><a href="siteMap.html">Site Map</a></li>
+     </ul>
+   </nav>
+ </div>
+ 
+<div class="row">
+<div class="col-md-12">
+ <h2>Contact Us</h2>
+ <form>
+ 	<input name="Personal_info" id="personal_info" type="button" value="Tell us about Yourself" class="primary_button" />
+ </form>
+  <p>Address: StaStays Lodgings<br>
+            Town Center Plaza<br>
+			Wildcat,&nbsp; &nbsp;VA, 25314-2704</p>
+            <p id="contact_number">Contact number: (571) 111-1212 (Office number)&nbsp;</p>
+			<p>harringwayTravels@gmail.com</p>
+			<iframe title = "Google Maps direction to the head office" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14853.184371917989!2d-77.36365306189202!3d39.01455442247092!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b6377c82f0035d%3A0x6fb331f2e45aca1!2sTown%20Center%20at%20Sterling!5e0!3m2!1sen!2sus!4v1638640776640!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe><br><br><br>
+</div>
+</div>
+
+
+<div class="row">
+<div class="col-md-12 offset-0"> 
+   <div id="footer">
+   <a href="styles.css" target="_blank">Site Stylesheet</a>
+   	  <p>© Copyright “this website is developed as an educational project”. If any copyrighted materials are included in accordance to the multimedia fair use guidelines, a notice should be added and states that “certain materials are included under the fair use exemption of the U.S. Copyright Law and have been prepared according to the multimedia fair use guidelines and are restricted from further use”.
+	</p>
+	<p id="last_modified"> </p>
+   </div>
+</div>
+</div>  
+</div>
+</div>
+</body>
+
+</html>

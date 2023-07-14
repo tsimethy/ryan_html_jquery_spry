@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Harringway Travels</title>
+<link rel="stylesheet" type="text/css" href="styles.css"/> 
+
+<script>	
+	var iconImg; // variable for the image tag to place the pictures
+	var pictures = ["i/pic0", "i/pic1", "i/pic2"]; // array for pictures
+	var descriptions = ["Luxury 5bd/4ba with pool in Boston", "Private room with bed and breakfast", "Room in boutique hotel"];	// array for the alt text for the pictures
+	
+	// function to display citations
+	function citationButtonPressed()
+	{
+		var citationButtonValue = document.getElementById("citation").value; // get citation element's value
+		// display/hide citations and change the button value
+		if (citationButtonValue == "View citations") {
+				document.getElementById("citation").value = "Hide citations";
+				document.getElementById("citation_display").innerHTML = "<p>L, K. (2021). Lobby [Image]. Retrieved from https://images.pexels.com/photos/2869215/pexels-photo-2869215.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940</p><p>Pixabay. (2021). Apartment [Image]. Retrieved from https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=50</p><p>Smida, S. (2021). [Image]. Retrieved from https://images.pexels.com/photos/1375383/pexels-photo-1375383.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940</p>";
+
+			}
+		else {
+				document.getElementById("citation").value = "View citations";
+				document.getElementById("citation_display").innerHTML = "";
+		}
+
+	}
+	
+	// function to pick random image on click event
+	function pickImage()  {
+		var index = Math.floor(Math.random() * 3 );
+		iconImg.setAttribute("src", pictures[index] + ".jpeg");
+		iconImg.setAttribute("alt", description[index]);
+	}
+	
+	//start method when page is loaded
+	function start()
+	{
+		iconImg = document.getElementById("image"); // get image element by id
+		iconImg.addEventListener("click", pickImage, false); // add click event listener to image element
+		document.getElementById("last_modified").innerHTML = "This document is last modified on "+document.lastModified; // display last modified
+		var citationButton = document.getElementById("citation"); // get citation element
+		citationButton.addEventListener("click", citationButtonPressed, false);  //add method citationButtonPressed for clickEvent
+
+	}
+	
+	window.addEventListener("load", start, false);   //add method start for loadEvent
+</script>
+
+
+</head>
+
+<body>
+<div class="container">
+<div class="row">
+<div class="col-md-12 "> 
+   <div id="banner">
+   	   <h1>Harringway Travels<img alt="Harringway Travels Logo" src="logo.png" width="50" height="50" class="img-responsive img-fluid right"/> </h1>
+   </div>
+</div>
+</div>
+
+<div class="row">
+
+<div class="col-md-12"> 
+   <nav><div id="dropdown-menu"> Menu</div>
+	 <ul id="navlist">
+	  <li><a href="home.html">Home</a></li>
+	  <li><a href="flights.html">Book Flights</a></li>
+	  <li><a href="accomodations.html">Accommodations</a></li>
+	  <li><a href="contact.html">Contact Us</a></li>
+      <li><a href="links.html">Useful Links</a></li>
+      <li><a href="feedback.html">Feedback</a></li>
+      <li><a href="siteMap.html">Site Map</a></li>
+     </ul>
+   </nav>
+ </div>
+ 
+<div class="row">
+<div class="col-md-12">
+<h2>Useful Links</h2>
+	<img id="image" src="i/pic0.jpeg" alt ="Luxury 5bd/4ba with pool in Boston" height="200" width="300" class="img-responsive img-fluid pic">
+	<p> <b>Click the image to check out another package</b></p>
+	<form>
+ 	<input name="citation" id="citation" type="button" value="View citations" class="primary_button" />
+ </form>
+ <div>
+ <p id="citation_display"></p>
+ </div>
+  
+	<table style="width: 100%">
+		<tr>
+			<th colspan="4">
+			<b>Useful Links</b>
+			</th>
+		</tr>
+		<tr>
+			<td class="sml-col">1.</td>
+			<td class="sml-col">Our Rating: 3/5</td>
+			<td>Travel Agent</td>
+			<td><a href="https://www.thomascook.com/" target = " _blank">Thomas Cook</a></td>
+		</tr>
+		<tr>
+			<td class="sml-col">2.</td>
+			<td class="sml-col">Our Rating: 4.2/5</td>
+			<td>Cheap Flight Booking</td>
+			<td><a href="https://www.kayak.com/horizon/sem/flights/general" target = " _blank">Kayak</a></td>
+		</tr>
+		<tr>
+			<td class="sml-col">3.</td>
+			<td class="sml-col">Our Rating; 4.7/5</td>
+			<td>Sightseeing Booking</td>
+			<td><a href="https://www.airbnb.com/" target = " _blank">Airbnb Experiences</a></td>
+		</tr>
+		<tr>
+			<td class="sml-col">4.</td>
+			<td class="sml-col">Our Rating; 4.1/5</td>
+			<td>Online Weather Check</td>
+			<td><a href="https://onlineweatherapp.com/#/" target = " _blank">Online Weather</a></td>
+		</tr>
+		<tr>
+			<td class="sml-col">5.</td>
+			<td class="sml-col">Our Rating; 4.5/5</td>
+			<td>Travel Protection</td>
+			<td><a href="https://www.globalrescue.com/" target = " _blank">Global Rescue</a></td>
+		</tr>
+	</table>
+	<br>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12 offset-0"> 
+   <div id="footer">
+   <a href="styles.css" target="_blank">Site Stylesheet</a>
+   	  <p>© Copyright “this website is developed as an educational project”. If any copyrighted materials are included in accordance to the multimedia fair use guidelines, a notice should be added and states that “certain materials are included under the fair use exemption of the U.S. Copyright Law and have been prepared according to the multimedia fair use guidelines and are restricted from further use”.
+	</p>
+	<p id="last_modified"> </p>
+   </div>
+</div>
+</div>  
+</div>
+</div>
+</body>
+
+</html>
+

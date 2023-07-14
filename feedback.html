@@ -1,0 +1,174 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+   <head>
+      <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+      <title>Harringway Travels</title>
+      <link rel="stylesheet" type="text/css" href="styles.css"/>
+      <script src="jqueryAssets/jquery.js"></script>
+      <script src="jqueryAssets/jquery.validate.js"></script>
+      <script>
+         $.validator.setDefaults({
+         	submitHandler: function() {
+         		alert("Your feedback has been submitted!");
+         	}
+         });
+         
+         $().ready(function() {
+         
+         	// validate signup form on keyup and submit
+         	$("#signupForm").validate({
+         		rules: {
+         			firstname: "required",
+         			lastname: "required",
+         			username: {
+         				required: true,
+         				minlength: 2
+         			},
+        			email: {
+         				required: true,
+         				email: true
+         			},
+          			emailReentry: {
+         				required: true,
+         				email: true,
+         				equalTo: "#email"
+         			},
+         			topic: {
+         				required: "#newsletter:checked",
+         				minlength: 2
+         			},
+         			agree: "required"
+         		},
+         		messages: {
+         			firstname: "Please enter your firstname",
+         			lastname: "Please enter your lastname",
+         			username: {
+         				required: "Please enter a username",
+         				minlength: "Your username must consist of at least 2 characters"
+         			},
+         			emailReentry: {
+         				required: "Please enter a valid email address",
+         				equalTo: "Please enter the same email as above"
+         			},
+         			email: "Please enter a valid email address",
+         			agree: "Please accept our policy",
+         			topic: "Please select at least 2 topics"
+         		}
+         	});
+         
+        
+         	//code to hide topic selection, disable for demo
+         	var newsletter = $("#newsletter");
+         	// newsletter topics are optional, hide at first
+         	var inital = newsletter.is(":checked");
+         	var topics = $("#newsletter_topics")[inital ? "removeClass" : "addClass"]("gray");
+         	var topicInputs = topics.find("input").attr("disabled", !inital);
+         	// show when newsletter is checked
+         	newsletter.click(function() {
+         		topics[this.checked ? "removeClass" : "addClass"]("gray");
+         		topicInputs.attr("disabled", !this.checked);
+         	});
+         });
+      </script>
+      <script>	
+         //start method when page is loaded
+         function start()
+         {
+         	document.getElementById("last_modified").innerHTML = "This document is last modified on "+document.lastModified; // display last modified
+         
+         }
+         
+         window.addEventListener("load", start, false);   //add method start for loadEvent
+      </script>
+   </head>
+   <body>
+      <div class="container">
+         <div class="row">
+            <div class="col-md-12 ">
+               <div id="banner">
+                  <h1>Harringway Travels<img alt="Harringway Travels Logo" src="logo.png" width="50" height="50" class="img-responsive img-fluid right"/> </h1>
+               </div>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-md-12">
+               <nav>
+                  <div id="dropdown-menu"> Menu</div>
+                  <ul id="navlist">
+                     <li><a href="home.html">Home</a></li>
+                     <li><a href="flights.html">Book Flights</a></li>
+                     <li><a href="accomodations.html">Accommodations</a></li>
+                     <li><a href="contact.html">Contact Us</a></li>
+                     <li><a href="links.html">Useful Links</a></li>
+                     <li><a href="feedback.html">Feedback</a></li>
+                     <li><a href="siteMap.html">Site Map</a></li>
+                  </ul>
+               </nav>
+            </div>
+            <div class="row">
+               <div class="col-md-12">
+                  <h2>Feedback</h2>
+                  <form class="cmxform" id="signupForm" method="get" action="#">
+                     <fieldset>
+                        <legend>Customer Feedback Form</legend>
+                        <p>
+                           <label for="firstname">Firstname</label>
+                           <input id="firstname" name="firstname" type="text">
+                        </p>
+                        <p>
+                           <label for="lastname">Lastname</label>
+                           <input id="lastname" name="lastname" type="text">
+                        </p>
+                        <p>
+                           <label for="email">Email</label>
+                           <input id="email" name="email" type="email">
+                        </p>
+                        <p>
+                           <label for="email">Re-enter Email</label>
+                           <input id="emailReentry" name="emailReentry" type="email">
+                        </p>
+                        <p>
+                           <label for="agree">Please agree to our policy</label>
+                           <input type="checkbox" class="checkbox" id="agree" name="agree">
+                        </p>
+                        <p>
+                           <label for="ccomment">Your comment</label>
+                           <textarea id="ccomment" name="comment" required></textarea>
+                        </p>
+                        <p>
+                           <label for="newsletter">I'd like to receive the newsletter</label>
+                           <input type="checkbox" class="checkbox" id="newsletter" name="newsletter">
+                        </p>
+                        <fieldset id="newsletter_topics">
+                           <legend>Topics (select at least two)</legend>
+                           <label for="topic_marketflash">
+                           <input type="checkbox" id="topic_marketflash" value="marketflash" name="topic">Marketflash
+                           </label>
+                           <label for="topic_fuzz">
+                           <input type="checkbox" id="topic_fuzz" value="fuzz" name="topic">Latest fuzz
+                           </label>
+                           <label for="topic_digester">
+                           <input type="checkbox" id="topic_digester" value="digester" name="topic">Mailing list digester
+                           </label>
+                        </fieldset>
+                        <p>
+                           <input class="primary_button" type="submit" value="Submit">
+                        </p>
+                     </fieldset>
+                  </form>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-md-12 offset-0">
+                  <div id="footer">
+                     <a href="styles.css" target="_blank">Site Stylesheet</a>
+                     <p>© Copyright “this website is developed as an educational project”. If any copyrighted materials are included in accordance to the multimedia fair use guidelines, a notice should be added and states that “certain materials are included under the fair use exemption of the U.S. Copyright Law and have been prepared according to the multimedia fair use guidelines and are restricted from further use”.
+                     </p>
+                     <p id="last_modified"> </p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>
